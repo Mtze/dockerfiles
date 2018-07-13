@@ -20,6 +20,7 @@ ARG PYGMENTS=python-pygments
 
 RUN apt-get update && apt-get install -y \
   texlive-full \
+  python-pygments \
   # some auxiliary tools
   "$WGET" \
   "$GIT" \
