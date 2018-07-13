@@ -1,11 +1,27 @@
-# dockerfiles
+# latex-minted 
 
-Here are some Dockerfiles.
-
-Since Docker Hub does not have GitLab integration (as of the writing of this
-file), this repository is hosted both [on GitLab][gl] and [on GitHub][gh].
+With this container latex files that include minted listings can be build.
 
 
-[gl]: https://gitlab.com/aergus/dockerfiles
+Example for gitlab ci:
+
+```yaml
+compile_pdf:
+  image: mtze/latex-minted
+  script:
+    - pdflatex -shell-escape thesis.tex
+    - bibtex thesis
+    - pdflatex -shell-escape thesis.tex
+    - pdflatex -shell-escape thesis.tex
+  artifacts:
+    paths:
+      - thesis.pdf
+```
+
+
+
+
+
+This project is basend on [aergus][gh].
 [gh]: https://github.com/aergus/dockerfiles
 
